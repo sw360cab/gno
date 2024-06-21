@@ -11,6 +11,7 @@ var errEndpointNotSet = errors.New("telemetry exporter endpoint not set")
 type Config struct {
 	MetricsEnabled   bool   `toml:"enabled"`
 	MeterName        string `toml:"meter_name"`
+	PrometheusAddr   string `toml:"prometheus_laddr" comment:"expose prometheus endpoint on :26660, disabled if empty"`
 	ServiceName      string `toml:"service_name"`
 	ServiceInstance  string `toml:"service_instance"`
 	ExporterEndpoint string `toml:"exporter_endpoint" comment:"the endpoint to export metrics to, like a local OpenTelemetry collector"`
@@ -24,6 +25,7 @@ func DefaultTelemetryConfig() *Config {
 	}
 	return &Config{
 		MetricsEnabled:   false,
+		PrometheusAddr:   ":26660",
 		MeterName:        "gno.land",
 		ServiceName:      "gno.land",
 		ServiceInstance:  hostname,
