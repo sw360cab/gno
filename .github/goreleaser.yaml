@@ -84,8 +84,8 @@ builds:
       - 6
       - 7
 
-gomod:
-  proxy: true
+# gomod:
+#   proxy: true
 
 archives:
   # https://goreleaser.com/customization/archive/
