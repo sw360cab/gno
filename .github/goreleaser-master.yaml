@@ -422,7 +422,7 @@ dockers:
     goarch: amd64
     image_templates:
       - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-amd64"
-      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-amd64"
+      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-amd64"
     build_flag_templates:
       - "--target=gnofaucet"
       - "--platform=linux/amd64"
@@ -438,7 +438,7 @@ dockers:
     goarch: arm64
     image_templates:
       - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-arm64v8"
-      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-arm64v8"
+      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-arm64v8"
     build_flag_templates:
       - "--target=gnofaucet"
       - "--platform=linux/arm64/v8"
@@ -455,7 +455,7 @@ dockers:
     goarm: 6
     image_templates:
       - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-armv6"
-      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-armv6"
+      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-armv6"
     build_flag_templates:
       - "--target=gnofaucet"
       - "--platform=linux/arm/v6"
@@ -472,7 +472,7 @@ dockers:
     goarm: 7
     image_templates:
       - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-armv7"
-      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-armv7"
+      - "ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-armv7"
     build_flag_templates:
       - "--target=gnofaucet"
       - "--platform=linux/arm/v7"
@@ -549,12 +549,12 @@ docker_manifests:
       - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-arm64v8
       - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-armv6
       - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Version }}-armv7
-  - name_template: ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}
+  - name_template: ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master
     image_templates:
-      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-amd64
-      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-arm64v8
-      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-armv6
-      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:{{ .Env.TAG_VERSION }}-armv7
+      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-amd64
+      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-arm64v8
+      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-armv6
+      - ghcr.io/gnolang/{{ .ProjectName }}/gnofaucet:master-armv7
 
 docker_signs:
   - cmd: cosign

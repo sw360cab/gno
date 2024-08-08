@@ -3,7 +3,8 @@ version: 2
 
 env:
   - TAG_VERSION={{ if index .Env "TAG_VERSION"  }}{{ .Env.TAG_VERSION }}{{ else }}latest{{ end }}
-  # - TAG_VERSION2="{{ envOrDefault "TAG_VERSION" "latest" }}"
+  # supported in next versions -> https://github.com/goreleaser/goreleaser/issues/5059
+  # - TAG_VERSION="{{ envOrDefault "TAG_VERSION" "latest" }}"
 
 before:
   hooks:
@@ -599,3 +600,10 @@ release:
     You can find all docker images at:
 
     https://github.com/orgs/gnolang/packages?repo_name={{ .ProjectName }}
+
+# Only valid for nightly build
+nightly:
+  tag_name: nightly
+  publish_release: true
+  keep_single_release: true
+  version_template: "{{ incpatch .Version }}-{{ .ShortCommit }}-{{ .Env.TAG_VERSION }}"
