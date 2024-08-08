@@ -2,7 +2,8 @@ project_name: gno
 version: 2
 
 env:
-  - TAG_VERSION="{{ envOrDefault "TAG_VERSION" "latest" }}"
+  - TAG_VERSION={{ if index .Env "TAG_VERSION"  }}{{ .Env.TAG_VERSION }}{{ else }}latest{{ end }}
+  - TAG_VERSION2="{{ envOrDefault "TAG_VERSION" "latest" }}"
 
 before:
   hooks:
