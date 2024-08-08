@@ -39,7 +39,7 @@ ENTRYPOINT [ "/usr/bin/gnoweb" ]
 ## ghcr.io/gnolang/gno/gnofaucet
 FROM base as gnofaucet
 
-COPY       ./gnofacuet /usr/bin/gnofaucet
+COPY       ./gnofaucet /usr/bin/gnofaucet
 EXPOSE     5050
 ENTRYPOINT [ "/usr/bin/gnofaucet" ]
 
