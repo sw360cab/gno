@@ -58,9 +58,7 @@ jobs:
           echo "Making docker compose happy"
           touch .env
           make docker.ci
-
-      - name: Print logs before test
-        run: docker compose logs --no-color
+          docker compose logs --no-color
 
       - name: "Test1 - Portal loop start gnoland"
         run: |
