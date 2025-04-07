@@ -58,7 +58,6 @@ jobs:
           echo "Making docker compose happy"
           touch .env
           make docker.ci
-          docker compose logs --no-color
 
       - name: "Test1 - Portal loop start gnoland"
         run: |
@@ -78,13 +77,15 @@ jobs:
 
       - name: "Wait for new docker image"
         run: |
+          docker-compose ps
+          docker-compose logs -n 5000 portallood
           ip_addr=$(cat misc/loop/traefik/gno.yml | grep -o "http://.*:26657")
           while
             new_ip_addr=$(cat misc/loop/traefik/gno.yml | grep -o "http://.*:26657")
             echo "${ip_addr} -> ${new_ip_addr}"
             [[ "${ip_addr}" == ${new_ip_addr} ]]
           do
-            sleep 5
+            sleep 20
           done
 
       - name: "Test2 - Wait portal-loop start new image"
