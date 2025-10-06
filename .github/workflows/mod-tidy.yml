@@ -18,7 +18,7 @@ on:
 jobs:
   main:
     name: Ensure go.mods are tidied
-    runs-on: ubuntu-latest
+    runs-on: gnolang-self-runner-medium
     steps:
       - name: Install Go
         uses: actions/setup-go@v5
