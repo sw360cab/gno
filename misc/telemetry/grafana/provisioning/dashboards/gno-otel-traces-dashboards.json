@@ -112,18 +112,6 @@
   "tags": [],
   "templating": {
     "list": []
-      {
-        "current": {
-          "text": "",
-          "value": ""
-        },
-        "label": "BlockHeight",
-        "name": "height",
-        "options": [],
-        "query": "",
-        "type": "custom"
-      }
-    ]
   },
   "time": {
     "from": "now-6h",
