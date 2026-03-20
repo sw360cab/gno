@@ -66,13 +66,20 @@
         "cellHeight": "sm",
         "footer": {
           "countRows": false,
+          "enablePagination": true,
           "fields": "",
           "reducer": [
             "sum"
           ],
           "show": false
         },
-        "showHeader": true
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "Duration"
+          }
+        ]
       },
       "pluginVersion": "11.5.2",
       "targets": [
@@ -89,13 +96,14 @@
             }
           ],
           "limit": 20,
-          "query": "{name=~\"NewHeight: .*${height}.*\"}",
+          "query": "{duration>80ms && resource.service.name=~\".+\"}",
           "queryType": "traceql",
           "refId": "A",
+          "spss": 40,
           "tableType": "traces"
         }
       ],
-      "title": "Traces",
+      "title": "RPC Requests Traces (> 80 ms)",
       "type": "table"
     }
   ],
