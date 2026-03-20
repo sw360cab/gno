@@ -107,12 +107,11 @@
       "type": "table"
     }
   ],
-  "preload": false,
   "refresh": "",
   "schemaVersion": 40,
   "tags": [],
   "templating": {
-    "list": [
+    "list": []
       {
         "current": {
           "text": "",
