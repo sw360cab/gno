@@ -22,7 +22,7 @@ jobs:
   bake:
     strategy:
       matrix:
-        image: [gnoland,gnokey,gnoweb,gno,gnofaucet,gnodev,gnocontribs]
+        image: [gnokey]
     runs-on: ubuntu-latest
     steps:
       - name: Login to GitHub Container Registry
