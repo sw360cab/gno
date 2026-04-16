@@ -169,7 +169,7 @@ correct flags for the `addpkg` subcommand.
 The `addpkg` subcommand uses the following flags and arguments:
 - `-pkgpath` - on-chain path where your code will be uploaded to
 - `-pkgdir` - local path where your code is located
-- `-broadcast` - enables broadcasting the transaction to the chain
+- `-broadcast` - enables broadcasting the transaction to the chain (default: true)
 - `-send` - Amount of GNOT to send to the realm with the transaction (optional)
 - `-max-deposit` - Maximum GNOT to lock for storage deposit (optional)
 - `-gas-wanted` - the upper limit for units of gas for the execution of the
@@ -193,7 +193,6 @@ gnokey maketx addpkg \
 -pkgdir "." \
 -gas-fee 10000000ugnot \
 -gas-wanted 8000000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443"
 ```
@@ -207,7 +206,6 @@ gnokey maketx addpkg \
 -pkgdir "." \
 -gas-fee 10000000ugnot \
 -gas-wanted 200000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443"
 mykey
@@ -270,7 +268,6 @@ gnokey maketx call \
 -send "1000ugnot" \
 -gas-fee 10000000ugnot \
 -gas-wanted 2000000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443" \
 mykey
@@ -310,7 +307,6 @@ gnokey maketx call \
 -args "<your_address>" \
 -gas-fee 10000000ugnot \
 -gas-wanted 2000000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443" \
 mykey
@@ -387,7 +383,6 @@ gnokey maketx send \
 -send 100ugnot \
 -gas-fee 10000000ugnot \
 -gas-wanted 2000000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443" \
 mykey
@@ -448,7 +443,6 @@ Now we will be able to provide this to the `maketx run` subcommand:
 gnokey maketx run \
 -gas-fee 1000000ugnot \
 -gas-wanted 20000000 \
--broadcast \
 -chainid staging \
 -remote "https://rpc.staging.gno.land:443" \
 mykey ./script.gno
@@ -634,7 +628,7 @@ of the transaction, preventing replay attacks.
 ### 2. Creating an unsigned transaction locally
 
 To create the transaction you want, you can use the [`call` API](#call),
-without the `-broadcast` flag, while redirecting the output to a local file:
+with `-broadcast=false`, while redirecting the output to a local file:
 
 ```bash
 gnokey maketx call \
@@ -642,6 +636,7 @@ gnokey maketx call \
 -func "Increment" \
 -gas-fee 1000000ugnot \
 -gas-wanted 2000000 \
+-broadcast=false \
 mykey > counter.tx
 ```
 
