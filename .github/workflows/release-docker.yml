@@ -18,10 +18,10 @@ permissions:
 
 jobs:
   bake:
+    runs-on: gnolang-self-runner-xlarge
     strategy:
       matrix:
         image: [gnoland,gnokey,gnoweb,gno,gnofaucet,gnodev,gnocontribs]
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       actions: write # kept in case type=gha is re-enabled; not required by type=registry
@@ -49,6 +49,10 @@ jobs:
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@8d2750c68a42422c14e847fe6c8ac0403b4cbd6f # v3
+        # remove this if GH runner is used
+        with:
+          driver: remote
+          endpoint: tcp://buildkit:1234
 
       - name: Resolve image tag
         id: resolve_tag
